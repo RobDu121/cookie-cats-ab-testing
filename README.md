@@ -22,6 +22,17 @@ Dataset source: https://www.kaggle.com/datasets/yufengsui/mobile-games-ab-testin
 - **Python / Pandas:** Data processing
 - **SciPy / Statsmodels:** Statistical hypothesis testing
 - **Matplotlib:** Data visualization
+# Visualizations
+### Distribution of Gamerounds Comparison
+![Distribution of Gamerounds](figures/distribution_gamerounds)
+
+### Player Retention Comparison
+
+![Player Retention](figures/retention_comparison.png)
+
+### 95% Confidence Interval
+
+![Confidence Interval](figures/confidence_interval.png)
 
 ## Methodology
 1. Explored the experimental dataset using SQL.
