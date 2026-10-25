@@ -24,7 +24,7 @@ Dataset source: https://www.kaggle.com/datasets/yufengsui/mobile-games-ab-testin
 - **Matplotlib:** Data visualization
 # Visualizations
 ### Distribution of Gamerounds Comparison
-![Distribution of Gamerounds](figures/distribution_gamerounds)
+![Distribution of Gamerounds](figures/distribution_gamerounds.png)
 
 ### Player Retention Comparison
 
