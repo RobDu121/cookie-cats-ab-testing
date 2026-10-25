@@ -1,12 +1,15 @@
 from statsmodels.stats.proportion import proportions_ztest
 from scipy.stats import ttest_ind
-from scipy.stats import trim_mean
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from pathlib import Path
 
+project_root = Path(__file__).resolve().parent.parent
+data_path = project_root / "data" / "cookie_cats.csv"
 
-df = pd.read_csv("cookie_cats.csv")
+df = pd.read_csv(data_path)
+
 gate_30 = df[df['version'] == 'gate_30']['sum_gamerounds']
 gate_30_filtered = df[(df['version'] == 'gate_30') & df['userid'] != 6390605]['sum_gamerounds']
 gate_40 = df[df['version'] == 'gate_40']['sum_gamerounds']
