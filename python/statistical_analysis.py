@@ -80,21 +80,3 @@ print("Yuen's trimmed t-test:")
 print("T-statistic:", t_stat3)
 print("P-value:", p_value4)
 
-#95% Confidence Interval Graph
-effect = difference * 100
-lower = lower_bound * 100
-upper = upper_bound * 100
-
-left_error = effect - lower
-right_error = upper - effect
-
-fig, ax = plt.subplots()
-ax.errorbar(effect, 0, xerr=[[left_error], [right_error]], fmt='o', capsize=5)
-ax.axvline(x=0, linestyle="--")
-
-ax.set_xlabel("Difference in Day 7 Retention (pp)")
-ax.set_yticks([])
-ax.set_title("Gate 30 vs Gate 40: Treatment Effect")
-
-ax.text(effect, 0.02, f"{effect:.2f} pp", ha='center')
-plt.show()
