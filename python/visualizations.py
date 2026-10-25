@@ -19,6 +19,8 @@ plt.title('Distribution of Gamerounds for Gate 30')
 plt.xlabel('Number of Gamerounds')
 plt.ylabel('Frequency')
 plt.legend()
+plt.savefig("distribution_gamerounds.png",
+            dpi=300, bbox_inches="tight")
 plt.show()
 
 #Bar Chart of Gate 30 and Gate 40 Day 1 and Day 7 retention percentages
@@ -49,6 +51,8 @@ for bars in (bars1, bars2):
         labels=[f"{value:.1%}" for value in bars.datavalues],
         padding=3
     )
+plt.savefig("figures/retention_comparison.png",
+        dpi=300, bbox_inches="tight")
 plt.show()
 
 #95% Confidence Interval Graph
@@ -81,4 +85,6 @@ ax.set_yticks([])
 ax.set_title("Gate 30 vs Gate 40: Treatment Effect")
 
 ax.text(effect, 0.02, f"{effect:.2f} pp", ha='center')
+plt.savefig("figures/confidence_interval.png",
+            dpi=300, bbox_inches="tight")
 plt.show()
