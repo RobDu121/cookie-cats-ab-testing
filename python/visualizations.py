@@ -19,7 +19,7 @@ plt.title('Game Rounds Distribution by Experimental Group')
 plt.xlabel('Number of Gamerounds')
 plt.ylabel('Density')
 plt.legend()
-plt.savefig("distribution_gamerounds.png",
+plt.savefig("figures/distribution_gamerounds.png",
             dpi=300, bbox_inches="tight")
 plt.show()
 
