@@ -2,8 +2,12 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import PercentFormatter
+from pathlib import Path
 
-df = pd.read_csv("cookie_cats.csv")
+project_root = Path(__file__).resolve().parent.parent
+data_path = project_root / "data" / "cookie_cats.csv"
+
+df = pd.read_csv(data_path)
 
 gate_30 = df[df['version'] == 'gate_30']['sum_gamerounds']
 gate_40 = df[df['version'] == 'gate_40']['sum_gamerounds']
