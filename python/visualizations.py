@@ -2,19 +2,25 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import PercentFormatter
+from pathlib import Path
 
-df = pd.read_csv("cookie_cats.csv")
+project_root = Path(__file__).resolve().parent.parent
+data_path = project_root / "data" / "cookie_cats.csv"
+
+df = pd.read_csv(data_path)
 
 gate_30 = df[df['version'] == 'gate_30']['sum_gamerounds']
 gate_40 = df[df['version'] == 'gate_40']['sum_gamerounds']
 
 #Histograms of the Distribution of Gamerounds
-plt.hist(gate_30, bins=50, range=(0, 200), edgecolor='black', density=True, label='Gate 30')
-plt.hist(gate_40, bins=50, range = (0, 200), edgecolor='black', density=True, label='Gate 40')
-plt.title('Distribution of Gamerounds for Gate 30')
+plt.hist(gate_30, bins=50, range=(0, 200), edgecolor='black', density=True, label='Gate 30', alpha=0.5)
+plt.hist(gate_40, bins=50, range = (0, 200), edgecolor='black', density=True, label='Gate 40', alpha=0.5)
+plt.title('Game Rounds Distribution by Experimental Group')
 plt.xlabel('Number of Gamerounds')
-plt.ylabel('Frequency')
+plt.ylabel('Density')
 plt.legend()
+plt.savefig("distribution_gamerounds.png",
+            dpi=300, bbox_inches="tight")
 plt.show()
 
 #Bar Chart of Gate 30 and Gate 40 Day 1 and Day 7 retention percentages
@@ -45,6 +51,8 @@ for bars in (bars1, bars2):
         labels=[f"{value:.1%}" for value in bars.datavalues],
         padding=3
     )
+plt.savefig("figures/retention_comparison.png",
+        dpi=300, bbox_inches="tight")
 plt.show()
 
 #95% Confidence Interval Graph
@@ -77,4 +85,6 @@ ax.set_yticks([])
 ax.set_title("Gate 30 vs Gate 40: Treatment Effect")
 
 ax.text(effect, 0.02, f"{effect:.2f} pp", ha='center')
+plt.savefig("figures/confidence_interval.png",
+            dpi=300, bbox_inches="tight")
 plt.show()

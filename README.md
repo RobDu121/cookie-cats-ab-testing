@@ -51,3 +51,29 @@ Dataset source: https://www.kaggle.com/datasets/yufengsui/mobile-games-ab-testin
 
 ## Recommendation
 The results favor keeping the progression gate at level 30 due to significantly higher Day 7 retention. Additional analysis of monetization, player satisfaction, and longer-term engagement would help support a final product decision.
+
+## How to Run This Project
+
+1. Clone the repository.
+2. Download the Cookie Cats dataset from the Kaggle link above.
+3. Place `cookie_cats.csv` inside the `data/` folder.
+4. Install the Python dependencies:
+
+   ```bash
+   py -3.13 -m pip install -r requirements.txt
+   ```
+
+5. Run the statistical analysis:
+
+   ```bash
+   py -3.13 python/statistical_analysis.py
+   ```
+
+6. Generate the visualizations:
+
+   ```bash
+   py -3.13 python/visualizations.py
+   ```
+
+The SQL analysis was performed using SQLite in DBeaver. Import the CSV into a table named `cookie_cats` before executing the SQL queries.
+  

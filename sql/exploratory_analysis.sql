@@ -1,12 +1,12 @@
 -- Question 1: How many players belong to each experimental group?
 SELECT version, COUNT(version) AS [Number of players]
 FROM cookie_cats
-GROUP BY(version)
+GROUP BY(version);
 
 --Question 2: What is the average number of game rounds played by each group?
 SELECT version, AVG(sum_gamerounds)
 FROM cookie_cats 
-GROUP BY(version)
+GROUP BY(version);
 
 
 --Question 3: What percentage of players in each group returned after one day?
@@ -18,9 +18,9 @@ SELECT version,
 				ELSE 0.0
 			END
 			)*100
-		) AS retention_percentage
+		, 2) AS retention_percentage
 FROM cookie_cats
-GROUP BY(version)
+GROUP BY(version);
 
 --Question 4: What percentage of players in each group returned after seven days?
 SELECT version,
@@ -33,7 +33,7 @@ SELECT version,
 			)*100
 		,2) AS retention_percentage
 FROM cookie_cats
-GROUP BY(version)
+GROUP BY(version);
 
 --Question 5: Write a querry that returns The experimental group (version),  
 --the total number of players,
@@ -126,16 +126,16 @@ SELECT version,
 		END
 		) AS [Total number of players that completed 0 rounds]
 FROM cookie_cats
-GROUP BY(version)
+GROUP BY(version);
 
 --Question 8: Find the top 5 players with the most games played
 SELECT userid, version, sum_gamerounds
 FROM cookie_cats
 ORDER BY(sum_gamerounds) DESC 
-LIMIT 5
+LIMIT 5;
 
 --Question 9: Find the Average without the outlier
 SELECT version, AVG(sum_gamerounds) AS [Average game rounds]
 FROM cookie_cats
 WHERE userid != 6390605
-GROUP BY(version)
+GROUP BY(version);
